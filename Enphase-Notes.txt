@@ -1,0 +1,19 @@
+Create API Key:
+https://enlighten.enphaseenergy.com/entrez-auth-token?serial_num=<EnphaseBoxSN>
+
+Access API URL:
+curl -f -k -H 'Accept: application/json' -H 'Authorization: Bearer <token code>’ -X <API command>
+
+More docs:
+https://enphase.com/download/iq-gateway-local-apis-or-ui-access-using-token
+
+Get metering info:
+https://GatewayIP/production.json?details=1
+
+Get inventory info:
+https://GatewayIP/inventory.json?deleted=1
+
+curl -f -k -H 'Accept: application/json' -H "Authorization: Bearer $token" https://GatewayIP/production.json?details=1
+
+"generation_time":1775346838,
+"expires_at":1806882838
