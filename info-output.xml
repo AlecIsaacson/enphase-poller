@@ -1,0 +1,84 @@
+/info.xml
+
+<envoy_info>
+  <time>1775607788</time>
+  <device>
+    <sn>482537073077</sn>
+    <pn>800-00664-r05</pn>
+    <software>D8.2.4401</software>
+    <euaid>4c8675</euaid>
+    <seqnum>0</seqnum>
+    <apiver>1</apiver>
+    <imeter>true</imeter>
+  </device>
+  <web-tokens>true</web-tokens>
+  <package name='rootfs'>
+    <pn>500-00001-r01</pn>
+    <version>02.00.00</version>
+    <build>1211</build>
+  </package>
+  <package name='kernel'>
+    <pn>500-00011-r02</pn>
+    <version>04.04.225</version>
+    <build>08bedf</build>
+  </package>
+  <package name='boot'>
+    <pn>590-00019-r01</pn>
+    <version>02.00.01</version>
+    <build>1f421b</build>
+  </package>
+  <package name='app'>
+    <pn>500-00002-r01</pn>
+    <version>08.02.4401</version>
+    <build>61eadc</build>
+  </package>
+  <package name='devimg'>
+    <pn>500-00004-r01</pn>
+    <version>01.02.501</version>
+    <build>355b53</build>
+  </package>
+  <package name='geo'>
+    <pn>500-00008-r01</pn>
+    <version>02.01.24</version>
+    <build>a74d96</build>
+  </package>
+  <package name='backbone'>
+    <pn>500-00010-r01</pn>
+    <version>07.00.20</version>
+    <build>176d57</build>
+  </package>
+  <package name='meter'>
+    <pn>500-00013-r01</pn>
+    <version>03.02.08</version>
+    <build>8e2f03</build>
+  </package>
+  <package name='agf'>
+    <pn>500-00012-r01</pn>
+    <version>02.02.00</version>
+    <build>c4cd56</build>
+  </package>
+  <package name='essimg'>
+    <pn>500-00020-r01</pn>
+    <version>31.33.66</version>
+    <build>97f971</build>
+  </package>
+  <package name='ffuimg'>
+    <pn>500-00022-r01</pn>
+    <version>01.00.04</version>
+    <build>2cd3479</build>
+  </package>
+  <package name='security'>
+    <pn>500-00016-r01</pn>
+    <version>02.00.00</version>
+    <build>54a6dc</build>
+  </package>
+  <package name='pkgsec'>
+    <pn>500-00021-r01</pn>
+    <version>01.00.00</version>
+    <build>0fdc14</build>
+  </package>
+  <build_info>
+    <build_time_gmt>1732686213</build_time_gmt>
+    <build_id>-envoy_uber-pkg_master:pkg-Nov-27-24-05:39:18</build_id>
+  </build_info>
+</envoy_info>
