@@ -6,12 +6,16 @@ curl -f -k -H 'Accept: application/json' -H 'Authorization: Bearer <token code>â
 
 More docs:
 https://enphase.com/download/iq-gateway-local-apis-or-ui-access-using-token
+https://github.com/Matthew1471/Enphase-API
 
 Get metering info:
 https://GatewayIP/production.json?details=1
 
 Get inventory info:
 https://GatewayIP/inventory.json?deleted=1
+
+Direct gateway URL:
+https://192.168.50.214/home#auth
 
 curl -f -k -H 'Accept: application/json' -H "Authorization: Bearer $token" https://GatewayIP/production.json?details=1
 
