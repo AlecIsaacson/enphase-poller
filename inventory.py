@@ -1,4 +1,4 @@
-#!/usr/bin/python3
+#!/home/alec/enphase-poller/venv/bin/python3
 
 import requests
 import json
