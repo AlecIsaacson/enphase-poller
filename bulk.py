@@ -48,14 +48,16 @@ def getMetrics(metricEndpoint):
 def sendMetrics(metricBatch):
     logger.info('In sendMetrics')
     try:
+        logger.debug('Sending: ' + metricBatch)
+
         headers = {"Authorization": "Bearer " + secrets['grafanaMetricKey'], "Content-Type": "text/plain"}
         response = requests.post(secrets['grafanaMetricURL'], headers=headers, data=metricBatch)
 
+        logger.debug('sendMetrics response code: ' + str(response.status_code))
         if response.status_code != 204:
             logger.info('sendMetrics bad response code: ' + str(response.status_code))
+            logger.info('sendMetrics bad response: ' + str(response))
             logger.info('Unable to send: ' + metricBatch)
-        logger.debug('Sending: ' + metricBatch)
-        logger.debug('sendMetrics response code: ' + str(response.status_code))
         return
     except Exception as err:
         print('Exception: ' + str(err))
