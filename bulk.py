@@ -1,4 +1,4 @@
-#!/home/alec/enphase-poller/venv/bin/python3
+#!/home/alec//GitHub/enphase-poller/venv/bin/python3
 
 import requests
 import json
@@ -10,14 +10,14 @@ import time
 
 # Initialize logging
 logging.Formatter.converter = time.gmtime
-logging.basicConfig(filename='/home/alec/enphase-poller/enphase-bulk.log', level=logging.INFO, format='%(asctime)s.%(msecs)03dZ %(levelname)s : %(message)s', datefmt='%Y-%m-%d %H:%M:%S')
+logging.basicConfig(filename='/home/alec//GitHub/enphase-poller/enphase-bulk.log', level=logging.INFO, format='%(asctime)s.%(msecs)03dZ %(levelname)s : %(message)s', datefmt='%Y-%m-%d %H:%M:%S')
 logger = logging.getLogger(__name__)
 
 # Log something
 logger.info('Starting poller')
 
 # Load secrets
-secrets = dotenv_values('/home/alec/enphase-poller/.env')
+secrets = dotenv_values('/home/alec/GitHub/enphase-poller/.env')
 
 # Disable SSL warnings because the Enphase box has a self-signed cert
 urllib3.disable_warnings()
