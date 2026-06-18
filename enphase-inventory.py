@@ -1,4 +1,4 @@
-#!/home/alec//GitHub/enphase-poller/venv/bin/python3
+#!/home/alec/enphase-poller/venv/bin/python3
 
 import requests
 import json
@@ -9,14 +9,14 @@ import logging
 import time
 
 logging.Formatter.converter = time.gmtime
-logging.basicConfig(filename='/home/alec/GitHub/enphase-poller/enphase-inventory.log', level=logging.INFO, format='%(asctime)s.%(msecs)03dZ %(levelname)s : %(message)s', datefmt='%Y-%m-%d %H:%M:%S')
+logging.basicConfig(filename='/home/alec/enphase-poller/enphase-inventory.log', level=logging.INFO, format='%(asctime)s.%(msecs)03dZ %(levelname)s : %(message)s', datefmt='%Y-%m-%d %H:%M:%S')
 logger = logging.getLogger(__name__)
 
 logger.info('Starting inventory')
 
 urllib3.disable_warnings()
 
-secrets = dotenv_values('/home/alec/GitHub/enphase-poller/.env')
+secrets = dotenv_values('/home/alec/enphase-poller/.env')
 
 # Get inventory from Enphase box.
 def getInventory(inventoryEndpoint):
@@ -43,7 +43,7 @@ def sendLogs(logLabels, logData):
 		logDict = {'streams': [{'stream': logLabels, 'values': [[nowNs, json.dumps(logData)]]}]}
 		# print(logDict)
 		headers = {'Authorization' : 'Bearer ' + secrets['logKey'], 'Content-Type' : 'application/json'}
-
+		
 		response = requests.post(secrets['logURL'], headers=headers, data=json.dumps(logDict))
 		# print(response.text)
 		# print(response.status_code)
@@ -72,3 +72,5 @@ def main():
 
 if __name__ == '__main__':
 	main()
+	logger.info('Run complete')
+
