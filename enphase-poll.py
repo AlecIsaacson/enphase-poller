@@ -1,4 +1,4 @@
-#!/home/alec/enphase-poller/venv/bin/python3
+#!/usr/bin/python3
 
 import requests
 import json
@@ -23,7 +23,6 @@ consumeMetrics = ['activeCount','wNow','whLifetime','varhLeadLifetime','varhLagL
 
 # Get metrics from Enphase box.
 def getMetrics(metricEndpoint):
-	logger.info('In GetMetrics')
 	try:
 		headers = {'Authorization' : 'Bearer ' + secrets['solarApiKey'], 'Accept' : 'application/json'}
 		# print(headers)
@@ -34,7 +33,7 @@ def getMetrics(metricEndpoint):
 			logger.info('setMetrics bad response code: ' + response.status_code)
 		# print(response.status_code)
 		# print(response.json())
-		logger.info('Leaving getMetrics')
+
 		return(response.json())
 	except Exception as err:
 		logger.info('Exception in getMetrics: ' + str(err))
@@ -59,14 +58,14 @@ def sendMetrics(metricName, metricTags, metricValue, readingTime):
 		# print(response)
 		logger.debug('Sending: ' + metricData)
 		logger.debug('sendMetrics response code: ' + str(response.status_code))
+
 		return
 	except Exception as err:
 		logger.info('Exception in sendMetrics: ' + str(err))
 
 def main():
 	logger.info('In Main')
-	# solarData = getMetrics('/production.json?details=1')
-	solarData = getMetrics('/production.json')
+	solarData = getMetrics('/production.json?details=1')
 	logger.info('Iterating production')
 	for item in solarData['production']:
 		if item['type'] == 'inverters':
@@ -85,9 +84,9 @@ def main():
 			for consumeMetric in consumeMetrics:
 				# print(consumeMetric + ' = ' + str(item[consumeMetric]))
 				sendMetrics('solar_consume_' + consumeMetric, 'location=' + secrets['siteID'], item[consumeMetric], item['readingTime'])
-				
+
 	# print('**********')
-	
+
 	logger.info('Iterating inverters')
 	inverterData = getMetrics('/api/v1/production/inverters')
 	for inverter in inverterData:

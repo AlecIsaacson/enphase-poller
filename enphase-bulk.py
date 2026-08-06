@@ -3,14 +3,14 @@
 import requests
 import json
 import urllib3
-import re
+# import re
 from dotenv import dotenv_values
 import logging
 import time
 
 # Initialize logging
 logging.Formatter.converter = time.gmtime
-logging.basicConfig(filename='/home/alec//GitHub/enphase-poller/enphase-bulk.log', level=logging.INFO, format='%(asctime)s.%(msecs)03dZ %(levelname)s : %(message)s', datefmt='%Y-%m-%d %H:%M:%S')
+logging.basicConfig(filename='/opt/enphase-manager/enphase-bulk.log', level=logging.INFO, format='%(asctime)s.%(msecs)03dZ %(levelname)s : %(message)s', datefmt='%Y-%m-%d %H:%M:%S')
 logger = logging.getLogger(__name__)
 
 # Log something
@@ -91,7 +91,7 @@ def main():
                 # print(consumeMetric + ' = ' + str(item[consumeMetric]))
                 metricData = 'solar_consume' + ',location=' + secrets['siteID'] + ' ' + consumeMetric.lower() + '=' + str(item[consumeMetric]) + ' ' + str(item['readingTime']) + '\n'
                 metricBatch = metricBatch + metricData
-    
+
     # Query the Enphase box for individual inverter production metrics
     inverterData = getMetrics('/api/v1/production/inverters')
 
@@ -109,3 +109,4 @@ def main():
 if __name__ == '__main__':
     main()
     logger.info('Run complete')
+
