@@ -34,6 +34,7 @@ def getInventory(inventoryEndpoint):
                 return(response.json())
         except Exception as err:
                 logger.info('Exception in getInventory: ' + str(err))
+                logger.info(response.text)
 
 # Send logs to Grafana
 def sendLogs(logLabels, logData):
@@ -55,6 +56,7 @@ def main():
         logger.info('In Main')
         inverterInventory = getInventory('/inventory.json')
         logger.info('Iterating inverters')
+        logger.info(inverterInventory)
         for item in inverterInventory:
                 if item['type'] == 'PCU':
                         for device in item['devices']:
@@ -66,8 +68,11 @@ def main():
 
         gatewayStatus = getInventory('/home')
         logger.info('Getting gateway inventory')
+        logger.info(gatewayStatus)
         logLabels = {'service_name' : 'solar_gateway'}
         sendLogs(logLabels, gatewayStatus)
+        logger.info('Getting info page')
+        softwareDetails = getInventory('/info')
         # print(gatewayStatus)
 
 if __name__ == '__main__':
