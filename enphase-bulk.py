@@ -3,7 +3,7 @@
 import requests
 import json
 import urllib3
-# import re
+import re
 from dotenv import dotenv_values
 import logging
 import time
